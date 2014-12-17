@@ -64,7 +64,7 @@ sass/
 |			|-- _refills.scss 		# styles for prepackaged patterns
 |		...
 |
-`--main.scss
+|--main.scss
 ```
 
 
