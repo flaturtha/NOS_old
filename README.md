@@ -21,6 +21,7 @@ The site is a standard Jekyll (cmdln: jekyll new [sitename]) set up with standar
 
 ##CSS/SCSS Folder Structure
 
+```
 :::text
 sass/
 |
@@ -64,7 +65,7 @@ sass/
 |		...
 |
 `--main.scss
-
+```
 
 
 
