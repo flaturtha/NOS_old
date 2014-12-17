@@ -5,7 +5,30 @@ module.exports = function(grunt) {
 	grunt.initConfig ({
 		pkg: grunt.file.readJSON ('package.json'),
 
-		
+		//Set Project Object
+		// project: {
+		// 	app: '/', //??
+		// 	assets: '<%- project.app %>/assets',
+		// 	src: '<%- project.app %>/src',
+		// 	css: [
+		// 		'<%- project.app %>/scss/styles.scss'
+		// 	],
+		// 	js: [
+		// 		'<%- project.app %>/js/*.js'
+		// 	],
+		// },
+
+		//Project Banner
+		tag: {
+			banner: '/*!\n' +
+							' * <%= pkg.name %>\n' +
+							' * Run date: <%= grunt.template.today(now) %>\n' +
+							' * <%= pkg.url %>\n' +
+							' * @author <%= pkg.author %>\n' +
+							' * @version <%= pkg.version %>\n' +
+							' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
+							' * /\n'
+		},
 
 		jekyll: {
 			build: {
@@ -17,19 +40,29 @@ module.exports = function(grunt) {
 		sass: {
 			options: {
 				sourceMap: true,
+				// outputStyle: 'compressed', [NOTE: UNCOMMENT (AND DEL THIS!) TO COMPRESS]
 			},
 			dist: {
 				files: {
-					'main.css': 'main.scss'
+					'css/main.css': '_assets/sass/main.scss'
+				}
+			},
+			site: {
+				files: {
+					'_site/css/main.css': '_assets/sass/main.scss'
 				}
 			}
 		},
 
 		watch: {
 			sass: {
-				files: 'scss/**/*.scss',
+				files: '_assets/sass/**/*.scss',
 				tasks: ['sass']
 			},
+			// site: {
+			// 	files: 'sass/**/*.scss',
+			// 	tasks: ['sass']
+			// },
 			jekyll: {
 				files: ['_layouts/*.html', '_includes/*.md', 'css/main.css'],
 				tasks: ['jekyll']
@@ -67,8 +100,8 @@ module.exports = function(grunt) {
 
 
 	//custom tasks
-	grunt.registerTask('build', ['jekyll']);
-	grunt.registerTask('default', ['browserSync', 'watch']);
-
+	grunt.registerTask('build', ['jekyll', 'sass']);
+	grunt.registerTask('default', ['build', 'browserSync', 'watch']);
+  grunt.registerTask('site', ['sass', 'browserSync', 'watch']);
 
 }; // end of module.exports
