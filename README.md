@@ -1,37 +1,25 @@
----
-date: 17 December 2014
-author: Rich Cook
----
-
-Number One Son (v 0.0.2) development site for TalesofMurder.com
+#Number One Son (v 0.0.2) development site for TalesofMurder.com
 
 Based on the static, non-JekyllRB site (repo: NOS_flat), this is the full JekyllRB development of the site. 
 
 ##Repo Structure
 The site is a standard Jekyll (cmdln: jekyll new [sitename]) set up with standard folders and files. Outline below:
 
-##Development
-??
-
-##Other stuff to be added as relevant
---
-
-
-
+# [insert full site outline]
 
 ##CSS/SCSS Folder Structure
 
 ```
 :::text
 sass/
-|
+|--main.scss
 |--partials/					# ALL SUB-FILES
 |	|--base/						# BOILERPLATE
 |		|-- _reset.scss 			# browser reset
 |		|-- _base.scss 				# base settings for mobile or simple browsers
 |		|-- _fonts.scss 			# font imports
 |		|-- _variables.scss 		# variables
-
+|
 |		...
 |			
 |	|--layout/ 						# STYLING & STRUCTURE
@@ -64,7 +52,6 @@ sass/
 |			|-- _refills.scss 		# styles for prepackaged patterns
 |		...
 |
-|--main.scss
 ```
 
 
