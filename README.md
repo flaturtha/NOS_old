@@ -1,4 +1,9 @@
-#Number One Son (v 0.0.2) development site for TalesofMurder.com
+---
+date: 17 December 2014
+author: Rich Cook
+---
+
+Number One Son (v 0.0.2) development site for TalesofMurder.com
 
 Based on the static, non-JekyllRB site (repo: NOS_flat), this is the full JekyllRB development of the site. 
 
