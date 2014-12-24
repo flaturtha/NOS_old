@@ -1,12 +1,33 @@
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width initial-scale=1">
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+		<title>{% if page.title %}{{ page.title }} &#124; {% endif %}{{ site.title }}</title>
+		{% if page.excerpt %}<meta name="description" content="{{ page.excerpt | strip_html }}">{% endif %}
+		{% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
+		
+		<!-- include open-graph.html w/ open moustach/percent-->
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-</head>
+		<!-- Webmaster Tools Verification -->
+		{% if site.owner.google.verify %}<meta name="google-site-verification" content="{{ site.owner.google.verify }}">{% endif %}
+
+		{% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="/assets/css/styles.css">
+	
+		<!--[if lt IE 9]>
+    	<script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+    	<script src="_assets/js/vendor/respond.js"></script>
+		<![endif]-->
+
+		<!-- Scripts -->
+		<script src="/assets/js/vendor/modernizr.custom.34164.js"></script>
+
+
+		<!-- Icons [http://tinyurl.com/nf7m64p] -->
+
+
+	</head>

@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html>
+{% include head.html %}
 
-  {% include head.html %}
+<body {% if page.title %} id="{{ page.title }}"{% endif %}>
 
-  <body>
+  {% include navigation.html %} <!-- add if page.nav=menu, otherwise, no menu (for landing pages) -->
 
-    {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
+  <main class="main" roll="main">
+    <div class="content">
+     {{ content }}
     </div>
 
-    {% include footer.html %}
+  </main>
 
-  </body>
+  {% include footer.html %}
 
-</html>
+  {% include scripts.html %}
+
+</body>

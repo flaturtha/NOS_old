@@ -1,0 +1,70 @@
+* {
+	margin: 0;
+	padding: 0; 
+	outline: 0;
+	box-sizing: border-box;
+}
+
+*:before, *:after {
+	box-sizing: border-box;
+}
+
+@-ms-viewport{
+  width: device-width;
+}
+
+html {
+	box-sizing: border-box;
+	background-color: $bgcolor;
+	// font-size: 62.5%;
+}
+
+body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
+  font-size-adjust: 0.5;
+}
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	font-size: 100%; /* 1rem; ... equivalent to 16px */
+	line-height: 1.25rem; /* equivalent to 20px */
+	font-family: $base-font-family;
+	color: $pcolor;
+}
+
+/**
+* .frame creates a max-width 960px/100% (mobile) area 
+* to center content on page while allowing background 
+* images/colors to be full width.
+**/
+.frame {
+	// border: 3px dashed purple;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 960px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
