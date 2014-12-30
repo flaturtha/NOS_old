@@ -2,9 +2,11 @@
    Main SCSS file -- import of all partials
    ========================================================================== */
 
+/* all but basic css commented out until rebuilt */
+
 
 /*==========  VENDOR  ==========*/
-@import 'partials/vendor/moded/wgpopup';
+// @import 'partials/vendor/moded/wgpopup';
 @import 'partials/vendor/bourbon/bourbon';
 @import 'partials/vendor/neat/neat';
 @import 'partials/vendor/base/base';
@@ -16,28 +18,34 @@
 @import 'partials/base/reset';
 @import 'partials/base/variables';
 @import 'partials/base/base';
-
+@import 'partials/base/lists';
 
 
 
 
 /*==========  LAYOUT  ==========*/
+// @import 'partials/layout/test';
+@import 'partials/layout/header';
 @import 'partials/layout/typography';
 @import 'partials/layout/masthead';
 @import 'partials/layout/navigation';
-@import 'partials/layout/body';
+@import 'partials/layout/jPushMenu';
+@import 'partials/layout/page';
+// @import 'partials/layout/body';
 @import 'partials/layout/footer';
+// @import 'partials/layout/cbp-af-header';
+// @import 'partials/layout/menu_sideslide';
 
 
 
 /*==========  MODULES  ==========*/
-@import 'partials/modules/modules';
+// @import 'partials/modules/modules';
 
 
 
 
 /*==========  UTILITIES  ==========*/
-
+@import 'partials/utils/utils';
 
 
 

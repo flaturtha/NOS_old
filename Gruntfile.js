@@ -1,31 +1,21 @@
-/**
-*
-* Number One Son (v0.0.2), TalesofMurder.com
-* http://talesofmurder.com
-* @author  Rich Cook
-*
-**/
-
-
 'use strict';
 
 module.exports = function(grunt) {
+	require('time-grunt')(grunt);
 
-	grunt.initConfig ({
-		pkg: grunt.file.readJSON('package.json'),
+	grunt.initConfig({
 
-		// JEKYLL BUILD
+		// JEKYLL task config
 		jekyll: {
 			build: {
 				dest: '_site'
 			}
 		},
 
-		// LIBSASS
+		// LIBSASS task config
 		sass: {
 			options: {
-				sourceMap: true,
-				includePaths: ['_assets/scss/**/_*.scss']
+				sourceMap: true
 			},
 			dev: {
 				files: {
@@ -37,7 +27,7 @@ module.exports = function(grunt) {
 		// CONCAT JS
 		concat: {
 			options: {
-				separator: ';',
+				separator: '\n;\n',
 				stripBanners: true,
 				// banner: '<%= tag.banner %>'
 			},
@@ -64,12 +54,6 @@ module.exports = function(grunt) {
 				files: {'assets/js/scripts.min.js': ['_assets/coffee/scripts.js']}
 			}
 		},
-		
-
-		// CLEAN
-		clean: {
-			dev: ['assets', '_site']
-		},
 
 		// COPY
 		copy: {
@@ -78,54 +62,46 @@ module.exports = function(grunt) {
 				cwd: '_assets/img/',
 				src: '**',
 				dest: 'assets/img',
-				flatten: true,
-				// filter: isFile,
-				// onlyIf: newer,
+				flatten: true
 			},
 			fonts: {
 				expand: true,
 				cwd: '_assets/fonts/',
 				src: '**',
 				dest: 'assets/fonts',
-				flatten: true,
-				// filter: isFile,
-				// onlyIf: newer,
+				flatten: true
 			},
 			vendorjs: {
 				expand: true,
 				cwd: '_assets/coffee/vendor/',
 				src: '**',
 				dest: 'assets/js/vendor',
-				flatten: true,
-				// filter: isFile,
-				// onlyIf: newer,
+				flatten: true
 			}
 		},
 
-		// WATCH
+		// Watch task config
 		watch: {
+			//option: spawn: false causes an error so CSS doesn't reload
 			sass: {
-				files: '_assets/scss/**/_*.scss',
+				files: '_assets/scss/**/*.scss',
 				tasks: ['sass']
 			},
-			javascript: {
-				files: '_assets/coffee/**/*.js',
-				tasks: ['jshint', 'concat', 'uglify']
-			},
 			jekyll: {
-				files: ['_layouts/*.html', '_includes/*.html', '_posts/*.md', '_assets/scss/styles.css'],
+				files: ['_layouts/*.html', '_includes/*.html', 'assets/**/*.*', '*.html'],
 				tasks: ['jekyll']
 			}
-		},
+		}, //end of watch		
 
 		// BROWSERSYNC
 		browserSync: {
 			files: {
-				src: ['_site/css/*.css', '_site/*.html', '_site/**/*.js']
+				src: ['_site/assets/css/*.css', '_site/*.html', '_site/assets/js/**/*.js']
 			},
 			options: {
 				watchTask: true,
 				ghostMode: {
+					clicks: true,
 					scroll: true,
 					links: true,
 					forms: true
@@ -136,16 +112,24 @@ module.exports = function(grunt) {
 			}
 		}
 
+
 	}); // end of grunt.initConfig
 
+	grunt.loadNpmTasks('grunt-sass');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-jekyll');
+	grunt.loadNpmTasks('grunt-browser-sync');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('time-grunt');
 
-	// LOAD PLUGINS
-	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-	// CUSTOM TASKS
+	grunt.registerTask('javascript', ['concat', 'uglify']);
 	grunt.registerTask('build', ['sass', 'copy', 'javascript', 'jekyll']);
-	grunt.registerTask('javascript', ['concat', 'uglify']); // removed jshint due to jQuery issues (12.23.14)
-	grunt.registerTask('default', ['build', 'javascript', 'browserSync', 'watch']);
+	grunt.registerTask('default', ['build', 'browserSync', 'watch']);
 
 
-}; //end of module.exports
+
+}; // end of module.exports

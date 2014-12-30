@@ -1,16 +1,12 @@
-#bodyfooter {
-  background-image: url("/assets/img/footprints1.png");
-  height: 55px;
-  color: #808080;
-  text-align: center;
-  padding-top: 1rem;
-  small {
-    margin: 0.5rem auto;
-    .rwd-line {
-      display: block;
-      @media (min-width: 900px) {
-        display: inline;
-      }
-    }
-  }
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.site__footer {
+	text-align: center;
+	color: #fff;
+	background: $bgcolor url("/assets/img/footprints1.png") repeat-x;
+	min-height: 4.0625rem;
+	padding-top: 1rem;
 }
+

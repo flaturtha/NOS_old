@@ -1,0 +1,23 @@
+/* ==========================================================================
+   HEADER .. full width of browser window
+   ========================================================================== */
+
+/*==========  NO JS/SIMPLE BROWSER  ==========*/
+.site__header {
+	// border: 3px dashed orange;
+	color: white; // or should this be white??
+	background: $bgcolor url("/assets/img/gearBG.png") repeat;	// add a media query to only repeat bg image on the X-axis when everything is in one line!
+	padding-bottom: 1rem;
+	// text-align: center;
+	@media screen and (min-width: 60rem) {
+		// text-align: left;
+		float: left;
+		padding-bottom: 0;
+	} 
+}
+
+.container {
+	width: 100%;
+	max-width: 60rem;
+	margin: 0 auto;
+}

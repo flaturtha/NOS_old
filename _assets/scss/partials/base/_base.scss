@@ -16,7 +16,6 @@
 html {
 	box-sizing: border-box;
 	background-color: $bgcolor;
-	// font-size: 62.5%;
 }
 
 body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
@@ -24,19 +23,21 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2
 }
 
 body {
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
+	// display: flex;
+	// min-height: 100vh;
+	// flex-direction: column;
 	font-size: 100%; /* 1rem; ... equivalent to 16px */
 	line-height: 1.25rem; /* equivalent to 20px */
 	font-family: $base-font-family;
-	color: $pcolor;
+	color: hotpink;
+	background-color: white;
 }
 
 /**
 * .frame creates a max-width 960px/100% (mobile) area 
 * to center content on page while allowing background 
-* images/colors to be full width.
+* images/colors to be full width. REPLACED BY NEAT
+* GRID SYSTEM!!
 **/
 .frame {
 	// border: 3px dashed purple;

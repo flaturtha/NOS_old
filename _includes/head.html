@@ -8,7 +8,7 @@
 		{% if page.excerpt %}<meta name="description" content="{{ page.excerpt | strip_html }}">{% endif %}
 		{% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
 		
-		<!-- include open-graph.html w/ open moustach/percent-->
+		<!-- include open-graph.html w/ open moustache/percent-->
 
 		<!-- Webmaster Tools Verification -->
 		{% if site.owner.google.verify %}<meta name="google-site-verification" content="{{ site.owner.google.verify }}">{% endif %}
@@ -17,6 +17,8 @@
 
 		<!-- CSS -->
 		<link rel="stylesheet" href="/assets/css/styles.css">
+		
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	
 		<!--[if lt IE 9]>
     	<script src="bower_components/html5shiv/dist/html5shiv.js"></script>
@@ -25,7 +27,12 @@
 
 		<!-- Scripts -->
 		<script src="/assets/js/vendor/modernizr.custom.34164.js"></script>
+		<!-- <script src="/assets/js/vendor/classie.js"></script>
+		<script src="/assets/js/vendor/nav.js"></script> -->
 
+		<!-- TYPEKIT -->
+		<script src="//use.typekit.net/gwl0zuj.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
 
 		<!-- Icons [http://tinyurl.com/nf7m64p] -->
 
